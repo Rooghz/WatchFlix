@@ -1,3 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+/* Your CSS rules and styles go here */
+
 * {
   margin: 0px;
   padding: 0px;
@@ -5,4 +13,113 @@
 
 body {
   background-color: #1a1a1d;
+}
+
+.bell {
+  width: 26.25px;
+  height: 26.25px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.red-line {
+  width: 24px;
+  height: 3.75px;
+  background-color: #da3714;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link.active .red-line {
+  transform: scaleX(1);
+}
+
+.featured img {
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.featured {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    91.99deg,
+    #000000 -1.19%,
+    rgba(0, 0, 0, 0) 73.82%
+  );
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.featured-details {
+  position: absolute;
+  width: 761px;
+  height: 427.5px;
+  left: 97.5px;
+  top: 120px;
+  position: absolute;
+  z-index: 2;
+}
+
+.featured-details h2 {
+  width: 761px;
+  height: 142px;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 142px;
+  color: #ffffff;
+}
+
+.featured-details p {
+  width: 567px;
+  font-family: "Overpass";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+}
+
+.watch-now {
+  font-family: "Overpass";
+  font-weight: 700;
+  font-size: 18px;
+  font-style: normal;
+  letter-spacing: 0.03em;
+  width: 97px;
+  height: 20px;
+}
+
+.watch {
+  width: 97px;
+  height: 23px;
+}
+
+.f-text span {
+  font-family: "Overpass";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  height: 100%;
+}
+
+.f-text {
+  height: 100%;
 }

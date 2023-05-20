@@ -1,17 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'typeface-poppins';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const customTheme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        backgroundColor: '#1a1a1d',
+        fontFamily: 'Poppins',
+        fontWeight: 600,
+        color: 'white',
+        marginLeft: 12,
+        marginRight: 12,
+        marginTop: 6,
+        marginBottom: 12,
+      },
+    },
+  },
+});
+
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={customTheme}>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

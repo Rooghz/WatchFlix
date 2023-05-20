@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import BladeRunner from '../Assets/BladeRunner.svg'
+import Rating from '../Components/Rating'
+import WatchNow from '../Components/WatchNow'
+import { AddIcon } from '@chakra-ui/icons'
+import { HiShare } from 'react-icons/hi';
 
 const HomePage = () => {
     const [featuredMovie, setFeaturedMovie] = useState(null);
@@ -59,53 +64,73 @@ const HomePage = () => {
                 {/* Header content */}
             </header>
             <section>
-                <div>
+                <div className='mt-6'>
                     {/* Render the featured movie */}
                     {featuredMovie && (
-                        <div>
-                            <img src={`https://image.tmdb.org/t/p/w500/${featuredMovie.poster_path}`} alt={featuredMovie.title} />
-                            <h2>{featuredMovie.title}</h2>
-                            <p>{featuredMovie.overview}</p>
-                            <p>Rating: {featuredMovie.vote_average}</p>
-                            <Link to={`/movies/${featuredMovie.id}`}>Watch Now</Link>
+                        <div className='featured'>
+                            <div className="image-overlay" />
+                            <img src={BladeRunner} alt={featuredMovie.title} />
+                            <div className='featured-details'>
+                                <h2>{featuredMovie.title}</h2>
+                                <p className='mb-3'>{featuredMovie.overview}</p>
+                                <Rating rating={4} />
+
+                                <div className='flex space-x-9 mt-10 items-center'>
+                                    <WatchNow className="watch" />
+                                    <div className='flex flex-col items-center space-y-2 f-text'>
+                                        <AddIcon className='mb-1' boxSize={4} />
+                                        <span>WATCHLIST</span>
+                                    </div>
+                                    <div className='flex flex-col items-center space-y-2 f-text'>
+                                        <HiShare size={21} />
+                                        <span>SHARE</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     )}
                 </div>
-                <div>
+                <div className='flex flex-col space-y-3 mt-14'>
                     <h3>Trending Now</h3>
                     {/* Render the trending movies */}
-                    {trendingMovies.map(movie => (
-                        <Link to={`/movies/${movie.id}`} key={movie.id}>
-                            <div>
-                                <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                            </div>
-                        </Link>
-                    ))}
+                    <div className='flex flex-row space-x-5'>
+                        {trendingMovies.map(movie => (
+                            <Link to={`/movies/${movie.id}`} key={movie.id}>
+                                <div>
+                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-                <div>
+                <div className='flex flex-col space-y-3 mt-14'>
                     <h3>Horror</h3>
                     {/* Render the horror movies */}
-                    {horrorMovies.map(movie => (
-                        <Link to={`/movies/${movie.id}`} key={movie.id}>
-                            <div>
-                                <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                            </div>
-                        </Link>
-                    ))}
+                    <div className='flex flex-row space-x-5'>
+                        {horrorMovies.map(movie => (
+                            <Link to={`/movies/${movie.id}`} key={movie.id}>
+                                <div>
+                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-                <div>
+                <div className='flex flex-col space-y-3 mt-14'>
                     <h3>Sci-Fi</h3>
                     {/* Render the sci-fi movies */}
-                    {sciFiMovies.map(movie => (
-                        <Link to={`/movies/${movie.id}`} key={movie.id}>
-                            <div>
-                                <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                            </div>
-                        </Link>
-                    ))}
+                    <div className='flex flex-row space-x-5'>
+                        {sciFiMovies.map(movie => (
+                            <Link to={`/movies/${movie.id}`} key={movie.id}>
+                                <div>
+                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 
