@@ -197,3 +197,73 @@ body {
   height: 0px;
   border: 0.75px solid #343434;
 }
+
+.movie-img {
+  object-fit: cover;
+  width: 100%;
+  height: 716.07px;
+  border-radius: 16.0795px;
+  z-index: 1;
+}
+
+.movie-details-text {
+  font-family: "Overpass";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  width: 1200px;
+}
+
+.rating p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+  color: #727171;
+  margin-right: 25px;
+}
+
+.imdb-img {
+  margin-right: 12px;
+}
+
+.movie-details-title {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 74px;
+  color: #ffffff;
+  width: 700px;
+}
+
+.mv-bt img {
+  margin-left: 63px;
+}
+
+.add-bt {
+  margin-bottom: 5px;
+}
+
+.movdet {
+  margin-bottom: 250px;
+}
+
+.movie-container {
+  position: relative;
+}
+
+.movie-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 690px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
