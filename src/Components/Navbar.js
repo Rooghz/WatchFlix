@@ -16,7 +16,7 @@ const Navbar = () => {
     }, [location]);
 
     return (
-        <div className='flex flex-row justify-between items-center'>
+        <div className='flex flex-row justify-between items-center app-container'>
             <div>
                 <img src={WatchFlix} alt="watchflix" />
             </div>

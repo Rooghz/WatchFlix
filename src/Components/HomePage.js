@@ -59,10 +59,7 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div>
-            <header>
-                {/* Header content */}
-            </header>
+        <div className='home-container'>
             <section>
                 <div className='mt-6'>
                     {/* Render the featured movie */}
@@ -90,8 +87,9 @@ const HomePage = () => {
                         </div>
                     )}
                 </div>
-                <div className='flex flex-col space-y-3 mt-14'>
-                    <h3>Trending Now</h3>
+                <hr class="line" />
+                <div className='flex flex-col space-y-3 mt-10'>
+                    <h3 className="home-text">Trending Now</h3>
                     {/* Render the trending movies */}
                     <div className='flex flex-row space-x-5'>
                         {trendingMovies.map(movie => (
@@ -104,7 +102,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className='flex flex-col space-y-3 mt-14'>
-                    <h3>Horror</h3>
+                    <h3 className="home-text">Horror</h3>
                     {/* Render the horror movies */}
                     <div className='flex flex-row space-x-5'>
                         {horrorMovies.map(movie => (
@@ -117,7 +115,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className='flex flex-col space-y-3 mt-14'>
-                    <h3>Sci-Fi</h3>
+                    <h3 className="home-text">Sci-Fi</h3>
                     {/* Render the sci-fi movies */}
                     <div className='flex flex-row space-x-5'>
                         {sciFiMovies.map(movie => (

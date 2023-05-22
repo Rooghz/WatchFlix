@@ -123,3 +123,77 @@ body {
 .f-text {
   height: 100%;
 }
+
+.footer h1 {
+  width: 139px;
+  height: 30px;
+  font-family: "Overpass";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: #da3714;
+  margin-bottom: 1px;
+}
+
+.footer p {
+  margin-top: 9px;
+  width: 105px;
+  height: 15px;
+  font-family: "Overpass";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+
+.w-img {
+  width: 126px;
+  height: 47px;
+}
+
+.custom-footer {
+  background-color: #111111;
+}
+
+.image-footer {
+  margin-left: 48px;
+}
+
+.information {
+  margin-right: 140.75px;
+}
+
+.app-container {
+  margin-left: 48px;
+  margin-right: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.home-container {
+  margin-bottom: 66px;
+  margin-left: 48px;
+  margin-right: 48px;
+  margin-top: 30px;
+}
+
+.home-text {
+  width: 169px;
+  height: 36px;
+  left: 48px;
+  top: 800.25px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ffffff;
+}
+
+.line {
+  margin-top: 24px;
+  height: 0px;
+  border: 0.75px solid #343434;
+}

@@ -19,7 +19,7 @@ const MovieDetailsPage = () => {
     }, [movieId]);
 
     return (
-        <div>
+        <div className='app-container'>
             {movieDetails ? (
                 <div>
                     <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`} alt={movieDetails.title} />
