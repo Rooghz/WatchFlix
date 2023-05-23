@@ -8,6 +8,7 @@ import { AddIcon } from '@chakra-ui/icons'
 import { HiShare } from 'react-icons/hi';
 
 const HomePage = () => {
+    const apiKey = process.env.REACT_APP_TMDB_API_KEY;
     const [featuredMovie, setFeaturedMovie] = useState(null);
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [horrorMovies, setHorrorMovies] = useState([]);
@@ -16,7 +17,7 @@ const HomePage = () => {
     useEffect(() => {
         // Fetch featured movie data
         axios
-            .get('https://api.themoviedb.org/3/movie/335984?api_key=f6b72f9ff85189fd9631dda6e2f43254')
+            .get('https://api.themoviedb.org/3/movie/335984?api_key=' + apiKey)
             .then(response => {
                 setFeaturedMovie(response.data);
             })
@@ -26,7 +27,7 @@ const HomePage = () => {
 
         // Fetch trending movies data
         axios
-            .get('https://api.themoviedb.org/3/movie/popular?api_key=f6b72f9ff85189fd9631dda6e2f43254&language=en-US&page=1')
+            .get('https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&language=en-US&page=1')
             .then(response => {
                 const trendingMoviesData = response.data.results.slice(0, 8);
                 setTrendingMovies(trendingMoviesData);
@@ -37,7 +38,7 @@ const HomePage = () => {
 
         // Fetch horror movies data
         axios
-            .get('https://api.themoviedb.org/3/discover/movie?api_key=f6b72f9ff85189fd9631dda6e2f43254&language=en-US&sort_by=popularity.desc&with_genres=27')
+            .get('https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&with_genres=27')
             .then(response => {
                 const horrorMoviesData = response.data.results.slice(0, 8);
                 setHorrorMovies(horrorMoviesData);
@@ -48,7 +49,7 @@ const HomePage = () => {
 
         // Fetch sci-fi movies data
         axios
-            .get('https://api.themoviedb.org/3/discover/movie?api_key=f6b72f9ff85189fd9631dda6e2f43254&language=en-US&sort_by=popularity.desc&with_genres=878')
+            .get('https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&with_genres=878')
             .then(response => {
                 const sciFiMoviesData = response.data.results.slice(0, 8);
                 setSciFiMovies(sciFiMoviesData);
@@ -56,7 +57,7 @@ const HomePage = () => {
             .catch(error => {
                 console.log(error);
             });
-    }, []);
+    }, [apiKey]);
 
     return (
         <div className='home-container'>
