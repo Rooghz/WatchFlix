@@ -9,15 +9,15 @@ import IMDB from '../Assets/IMDB.svg'
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import ReactPlayer from 'react-player';
 
 const MovieDetailsPage = () => {
     const { movieId } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
+    const [movieTrailers, setMovieTrailers] = useState([]);
     const [similarMovies, setSimilarMovies] = useState([]);
+    const [selectedTrailer, setSelectedTrailer] = useState(null);
     const sliderRef = useRef(null);
-
-
 
     useEffect(() => {
         // Fetch movie details data
@@ -34,7 +34,17 @@ const MovieDetailsPage = () => {
         axios
             .get(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=1`)
             .then(response => {
-                setSimilarMovies(response.data.results.slice(0, 8));
+                setSimilarMovies(response.data.results.slice(0, 18));
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        // Fetch movie trailers
+        axios
+            .get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`)
+            .then(response => {
+                setMovieTrailers(response.data.results);
             })
             .catch(error => {
                 console.log(error);
@@ -74,6 +84,13 @@ const MovieDetailsPage = () => {
         },
     };
 
+    const handleTrailerClick = (trailer) => {
+        setSelectedTrailer(trailer);
+    };
+
+    const handleTrailerClose = () => {
+        setSelectedTrailer(null);
+    };
 
     return (
         <div className='app-container'>
@@ -92,9 +109,23 @@ const MovieDetailsPage = () => {
                                 <HiShare size={21} />
                                 <span>SHARE</span>
                             </div>
-                            <img src={Play} alt="play-button" />
+                            <img src={Play} alt="play-button" onClick={() => handleTrailerClick(movieTrailers[0])} />
                         </div>
                     </div>
+
+                    {selectedTrailer && (
+                        <div className='ml-10 mt-12'>
+                            <div className='flex flex-row space-x-5'>
+                                <div className="trailer-overlay">
+                                    <div className="trailer-container">
+                                        <ReactPlayer url={`https://www.youtube.com/watch?v=${selectedTrailer.key}`} controls={true} width='100%' height='100%' />
+                                        <button className="close-btn" onClick={handleTrailerClose}>Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     <div className='ml-10'>
                         <div className='flex rating mb-14 rating'>
                             <div className='flex'>
@@ -111,7 +142,7 @@ const MovieDetailsPage = () => {
                         </div>
                         <p className='movie-details-text'>{movieDetails.overview}</p>
                     </div>
-                    {similarMovies.length > 0 && (
+                    {movieTrailers.length > 0 && (
                         <div className='ml-10 mt-12'>
                             <h3 className='more-like mb-3'>More Like This</h3>
                             <div className='flex flex-row space-x-5'>
@@ -129,14 +160,12 @@ const MovieDetailsPage = () => {
                             </div>
                         </div>
                     )}
-
                 </div>
             ) : (
                 <p>Loading...</p>
             )}
         </div>
     );
-
 };
 
 export default MovieDetailsPage;
