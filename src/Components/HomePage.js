@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import BladeRunner from '../Assets/BladeRunner.svg'
 import Rating from '../Components/Rating'
 import WatchNow from '../Components/WatchNow'
@@ -13,6 +16,7 @@ const HomePage = () => {
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [horrorMovies, setHorrorMovies] = useState([]);
     const [sciFiMovies, setSciFiMovies] = useState([]);
+    const sliderRef = useRef([]);
 
     useEffect(() => {
         // Fetch featured movie data
@@ -29,7 +33,7 @@ const HomePage = () => {
         axios
             .get('https://api.themoviedb.org/3/movie/popular?api_key=' + apiKey + '&language=en-US&page=1')
             .then(response => {
-                const trendingMoviesData = response.data.results.slice(0, 8);
+                const trendingMoviesData = response.data.results.slice(0, 15);
                 setTrendingMovies(trendingMoviesData);
             })
             .catch(error => {
@@ -40,7 +44,7 @@ const HomePage = () => {
         axios
             .get('https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&with_genres=27')
             .then(response => {
-                const horrorMoviesData = response.data.results.slice(0, 8);
+                const horrorMoviesData = response.data.results.slice(0, 15);
                 setHorrorMovies(horrorMoviesData);
             })
             .catch(error => {
@@ -51,13 +55,46 @@ const HomePage = () => {
         axios
             .get('https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&with_genres=878')
             .then(response => {
-                const sciFiMoviesData = response.data.results.slice(0, 8);
+                const sciFiMoviesData = response.data.results.slice(0, 15);
                 setSciFiMovies(sciFiMoviesData);
             })
             .catch(error => {
                 console.log(error);
             });
     }, [apiKey]);
+
+    const settings = {
+        slidesToShow: 8,
+        slidesToScroll: 1,
+        infinite: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 8,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            }
+        ],
+        afterChange: () => {
+            // Force a re-render of the Slider component to update slide dimensions
+            sliderRef.current.slickGoTo(0);
+        },
+    };
 
     return (
         <div className='home-container'>
@@ -93,39 +130,51 @@ const HomePage = () => {
                     <h3 className="home-text">Trending Now</h3>
                     {/* Render the trending movies */}
                     <div className='flex flex-row space-x-5'>
-                        {trendingMovies.map(movie => (
-                            <Link to={`/movies/${movie.id}`} key={movie.id}>
-                                <div>
-                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                                </div>
-                            </Link>
-                        ))}
+                        <div className='similar-movies-slider'>
+                            <Slider ref={sliderRef} {...settings}>
+                                {trendingMovies.map(movie => (
+                                    <Link to={`/movies/${movie.id}`} key={movie.id}>
+                                        <div className='poster-img'>
+                                            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+                                        </div>
+                                    </Link>
+                                ))}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
                 <div className='flex flex-col space-y-3 mt-14'>
                     <h3 className="home-text">Horror</h3>
                     {/* Render the horror movies */}
                     <div className='flex flex-row space-x-5'>
-                        {horrorMovies.map(movie => (
-                            <Link to={`/movies/${movie.id}`} key={movie.id}>
-                                <div>
-                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                                </div>
-                            </Link>
-                        ))}
+                        <div className='similar-movies-slider'>
+                            <Slider ref={sliderRef} {...settings}>
+                                {horrorMovies.map(movie => (
+                                    <Link to={`/movies/${movie.id}`} key={movie.id}>
+                                        <div className='poster-img'>
+                                            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+                                        </div>
+                                    </Link>
+                                ))}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
                 <div className='flex flex-col space-y-3 mt-14'>
                     <h3 className="home-text">Sci-Fi</h3>
                     {/* Render the sci-fi movies */}
                     <div className='flex flex-row space-x-5'>
-                        {sciFiMovies.map(movie => (
-                            <Link to={`/movies/${movie.id}`} key={movie.id}>
-                                <div>
-                                    <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                                </div>
-                            </Link>
-                        ))}
+                        <div className='similar-movies-slider'>
+                            <Slider ref={sliderRef} {...settings}>
+                                {sciFiMovies.map(movie => (
+                                    <Link to={`/movies/${movie.id}`} key={movie.id}>
+                                        <div className='poster-img'>
+                                            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
+                                        </div>
+                                    </Link>
+                                ))}
+                            </Slider>
+                        </div>
                     </div>
                 </div>
             </section >

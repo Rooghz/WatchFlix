@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
 
 /* Your CSS rules and styles go here */
 
@@ -237,7 +238,7 @@ body {
   font-weight: 500;
   font-size: 74px;
   color: #ffffff;
-  width: 700px;
+  line-height: 85px;
 }
 
 .mv-bt img {
@@ -256,14 +257,84 @@ body {
   position: relative;
 }
 
+.movie-details-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 716px;
+  background: linear-gradient(
+    2.7deg,
+    #1a1a1d -0.65%,
+    rgba(26, 26, 29, 0) 67.05%
+  );
+  border-radius: 16.0795px;
+  z-index: 1;
+}
+
 .movie-details {
   width: 100%;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 690px;
+  top: 721px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 2;
+}
+
+.rating {
+  margin-top: 110px;
+}
+
+.tag-button {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21.6108px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #da3714;
+  padding: 6 10px;
+  box-sizing: border-box;
+}
+
+.movie-tags button {
+  width: 182.65px;
+  height: 40.41px;
+  flex-wrap: wrap;
+  gap: 8px;
+  border: 1.07196px solid #da3714;
+  border-radius: 22.5112px;
+}
+
+.more-like {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ffffff;
+}
+
+.similar-movies-slider {
+  overflow: hidden;
+}
+
+.similar-movies-slider .slick-track {
+  display: flex;
+}
+
+.similar-movies-slider .slick-slide {
+  flex: 0 0 auto;
+  width: auto !important;
+  margin-right: 20px;
+}
+
+.poster-img {
+  width: 160.72px;
+  height: 227.98px;
 }
