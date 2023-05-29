@@ -104,6 +104,10 @@ const HomePage = () => {
         setShowTrailer(true);
     };
 
+    const handleTrailerClose = () => {
+        setShowTrailer(false);
+    };
+
     return (
         <div className="home-container">
             <section>
@@ -114,33 +118,34 @@ const HomePage = () => {
                             <div className="image-overlay" />
                             <img src={BladeRunner} alt={featuredMovie.title} />
                             <div className="featured-details">
-                                <h2>{featuredMovie.title}</h2>
+                                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">{featuredMovie.title}</h2>
                                 <p className="mb-3">{featuredMovie.overview}</p>
-                                <Rating rating={4} />
+                                <Rating className="res-rating" rating={4} />
 
-                                <div className="flex space-x-9 mt-10 items-center">
+                                <div className="watch-bt flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 md:space-x-6 lg:space-x-9 mt-10 items-center">
                                     <button onClick={() => handleWatchNow('https://www.youtube.com/watch?v=gCcx85zbxz4')}>
                                         <WatchNow className="watch" />
                                     </button>
                                     <div className="flex flex-col items-center space-y-2 f-text">
                                         <AddIcon className="mb-1" boxSize={4} />
-                                        <span>WATCHLIST</span>
+                                        <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">WATCHLIST</span>
                                     </div>
                                     <div className="flex flex-col items-center space-y-2 f-text">
                                         <HiShare size={21} />
-                                        <span>SHARE</span>
+                                        <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">SHARE</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     )}
                 </div>
+
                 {/* Render the trailer */}
                 {showTrailer && (
                     <div className="trailer-overlay">
                         <div className="trailer-container">
                             <ReactPlayer url={trailerUrl} width="100%" height="100%" controls playing />
-                            <button className="close-btn" onClick={() => setShowTrailer(false)}>
+                            <button className="close-btn" onClick={handleTrailerClose}>
                                 Close
                             </button>
                         </div>
