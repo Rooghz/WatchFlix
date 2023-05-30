@@ -423,12 +423,37 @@ body {
 }
 
 @media (max-width: 480px) {
+  .featured {
+    height: 280px;
+  }
+
+  .featured-details {
+    width: 93%;
+    height: auto;
+    left: 20px;
+    top: -125px;
+  }
+
+  .featured img {
+    height: 280px;
+    object-fit: cover;
+  }
   .featured-details h2 {
-    font-size: 36px;
-    line-height: 48px;
+    font-size: 26px;
+    height: 90px;
   }
 
   .featured-details p {
-    font-size: 16px;
+    font-size: 10px;
+  }
+
+  .watch-now {
+    font-size: 24px;
+    margin-left: 30px;
+  }
+
+  .watch-bt button {
+    top: -25px;
+    margin-left: 27px;
   }
 }
