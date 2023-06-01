@@ -369,6 +369,133 @@ body {
   cursor: pointer;
 }
 
+.api-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+  margin-bottom: 240px;
+}
+
+.dash {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 41.6108px;
+  line-height: 26px;
+}
+
+.buttonClass {
+  font-size: 15px;
+  font-family: Arial;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  color: #fff;
+  border-color: #eeb44f;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #fce2c1;
+  text-shadow: inset 0px 1px 0px #cc9f52;
+  background: linear-gradient(#ffc477, #fb9e25);
+}
+
+.buttonClass:hover {
+  background: linear-gradient(#fb9e25, #ffc477);
+}
+
+.delClass {
+  font-size: 15px;
+  font-family: Arial;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  color: #ffffff;
+  border-color: #d83526;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #f29c93;
+  text-shadow: inset 0px 1px 0px #b23e35;
+  background: linear-gradient(#fe1a00, #ce0100);
+}
+
+.delClass:hover {
+  background: linear-gradient(#ce0100, #fe1a00);
+}
+
+.addbuttonClass {
+  font-size: 15px;
+  font-family: Arial;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  color: #306108;
+  border-color: #268a16;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #caefab;
+  text-shadow: inset 0px 1px 0px #aade7c;
+  background: linear-gradient(#77d42a, #5cb811);
+}
+
+.addbuttonClass:hover {
+  background: linear-gradient(#5cb811, #77d42a);
+}
+
+.canbuttonClass {
+  font-size: 15px;
+  font-family: Arial;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  color: #c92200;
+  border-color: #e65f44;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #f9eca0;
+  text-shadow: inset 0px 1px 0px #ded17c;
+  background: linear-gradient(#f0c911, #f2ab1e);
+}
+
+.canbuttonClass:hover {
+  background: linear-gradient(#f2ab1e, #f0c911);
+}
+
+.api-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.api-h {
+  width: 200px;
+  height: 200px;
+}
+
+.api-d {
+  width: 400px;
+  height: 200px;
+}
+
+input {
+  color: black;
+}
+
 /* Responsive styles */
 
 @media (max-width: 768px) {
