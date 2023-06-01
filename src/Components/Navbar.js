@@ -18,7 +18,9 @@ const Navbar = () => {
     return (
         <div className='flex flex-row justify-between items-center app-container'>
             <div>
-                <img src={WatchFlix} alt="watchflix" />
+                <NavLink exact to="/" activeClassName="active">
+                    <img src={WatchFlix} alt="watchflix" />
+                </NavLink>
             </div>
             <nav className="hidden md:flex space-x-14">
                 <NavLink exact to="/" activeClassName="active" className="nav-link">
