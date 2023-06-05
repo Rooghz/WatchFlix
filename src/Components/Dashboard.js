@@ -10,7 +10,7 @@ const Dashboard = () => {
 
     // Fetch movies from the API
     useEffect(() => {
-        fetch('https://watch-flix-iota.vercel.app/api/movies')
+        fetch('http://localhost:5000/api/movies')
             .then((response) => response.json())
             .then((data) => setMovies(data))
             .catch((error) => console.log(error));
@@ -22,7 +22,7 @@ const Dashboard = () => {
             return;
         }
 
-        fetch('https://watch-flix-iota.vercel.app/api/movies', {
+        fetch('http://localhost:5000/api/movies', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(movie),
@@ -41,7 +41,7 @@ const Dashboard = () => {
             return;
         }
 
-        fetch(`https://watch-flix-iota.vercel.app/api/movies/${movie._id}`, {
+        fetch(`http://localhost:5000/api/movies/${movie._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(movie),
@@ -57,7 +57,7 @@ const Dashboard = () => {
     };
 
     const handleDeleteMovie = (id) => {
-        fetch(`https://watch-flix-iota.vercel.app/api/movies/${id}`, { method: 'DELETE' })
+        fetch(`http://localhost:5000/api/movies/${id}`, { method: 'DELETE' })
             .then(() => setMovies(movies.filter((movie) => movie._id !== id)))
             .catch((error) => console.log(error));
     };
