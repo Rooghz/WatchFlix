@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MovieForm from '../Components/Forms/MovieForm';
 import MovieList from '../Components/Lists/MovieList';
 
+
 const Dashboard = () => {
     const [movies, setMovies] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
