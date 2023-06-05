@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const moviesRoutes = require('./routes/movies');
+require('dotenv').config();
+
 
 const app = express();
 app.use(express.json());
@@ -9,7 +11,7 @@ app.use(cors());
 
 // Connect to MongoDB
 mongoose
-    .connect('mongodb://127.0.0.1/watchflix', {
+    .connect(process.env.MONGODB_CONNECTION_STRING, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })

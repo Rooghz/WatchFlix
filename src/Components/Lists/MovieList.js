@@ -1,4 +1,3 @@
-import { ClassNames } from '@emotion/react';
 import React from 'react';
 
 const MovieList = ({ movies, onDelete, onEdit }) => {
