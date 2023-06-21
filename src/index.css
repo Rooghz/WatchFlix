@@ -538,6 +538,29 @@ input {
   color: #ffffff;
 }
 
+.highlight {
+  width: 150px;
+  height: 50px;
+  background-color: #da3714;
+  margin-top: -10px;
+  border-radius: 15px;
+}
+
+.highlight p {
+  margin-top: 13px;
+}
+
+.buy-now {
+  width: auto;
+  height: 40px;
+  background-color: #da3714;
+  margin-bottom: 20px;
+}
+
+.buy-now:hover {
+  background-color: green;
+}
+
 /* Responsive styles */
 
 @media (max-width: 768px) {

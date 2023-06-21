@@ -1,6 +1,6 @@
 import React from 'react';
 import WatchFlix from '../Assets/WatchFlix.svg';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (

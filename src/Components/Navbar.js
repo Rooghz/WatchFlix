@@ -39,6 +39,10 @@ const Navbar = () => {
                     Categories
                     {activeLink === '/categories' && <div className="red-line" />}
                 </NavLink>
+                <NavLink to="/payment" activeClassName="active" className="nav-link">
+                    Payment
+                    {activeLink === '/payment' && <div className="red-line" />}
+                </NavLink>
             </nav>
             <div className='flex'>
                 <div className="flex space-x-8">
