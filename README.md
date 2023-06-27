@@ -8,7 +8,7 @@ Payment Page - https://watch-flix-rooghz.vercel.app/payment
 
 # Dashboard Page
 
-https://watch-flix-rooghz.vercel.app/dashboard
+https://watch-flix-rooghz.vercel.app/dashboard (To Manage OTT Content)
 
 # WatchFlix-Backend-Dashboard
 
